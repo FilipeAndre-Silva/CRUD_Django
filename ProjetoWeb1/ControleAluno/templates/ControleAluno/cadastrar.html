@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if idAluno %}
+        <title>Atualizar Dados</title>
+    {% endif %}
+    <title>Cadastrar Aluno</title>
+</head>
+<body>
+
+<h2>Cadastro Aluno:</h2>
+
+<form method="POST">
+
+    {% csrf_token %}<!-- referencia do Django que evida invações dentro do formulario -->
+    {{ form.as_p }}<!-- furmulario gerado no form.py -->
+    <button type="submit">Salvar</button>
+
+    <a href="{% url 'listagem' %}">Lista de Cadastros</a><br>
+
+    {% if idAluno %}<!-- if para adicionar o Botão deletar caso seja passado o id do aluno -->
+    <a href="{% url 'exclusao' idAluno.id %}">Deletar</a>
+    {% endif %}
+
+</form>
+
+</body>
+</html>

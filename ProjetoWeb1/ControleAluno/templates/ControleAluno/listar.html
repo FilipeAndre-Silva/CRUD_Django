@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Alunos</title>
+</head>
+<body>
+
+    <h2>Contorle de Alunos: </h2>
+
+    <ul>
+    {% for Aluno in alunos %} <!-- for que roda o Objeto e lista todos eles -->
+
+    <li>
+    <a href="{% url 'edicao' Aluno.id %}">{{ Aluno.nomeCompleto }} - {{ Aluno.cpf }} - {{ Aluno.email }}</a>
+    </li>
+
+    {% endfor %}
+    </ul>
+
+    <a href="{% url 'cadastro' %}">Cadastrar</a>
+
+</body>
+</html>
